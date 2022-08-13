@@ -8,11 +8,13 @@ import ProductDetails from './components/shared/ProductDetails';
 //contexts
 import ProductContextProvider from './contexts/ProductContextProvider';
 import CartContextProvider from './contexts/CartContextProvider';
+import Navbar from './components/shared/Navbar';
 
 function App() {
   return (
     <ProductContextProvider>
       <CartContextProvider>
+        <Navbar />
         <Routes>
           <Route path='/products' element={<Store/>} />
           <Route path='/products/:id' element={<ProductDetails/>} />
