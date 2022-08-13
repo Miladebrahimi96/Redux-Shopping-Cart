@@ -14,7 +14,10 @@ const Store = () => {
     return (
         <div>
             {
-                products.map(product => <Product key={product.id} />)
+                products.map(product => <Product 
+                                            key={product.id}
+                                            productData={product}
+                                        />)
             }
         </div>
     );
