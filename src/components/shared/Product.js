@@ -1,7 +1,7 @@
 import React from 'react';
 
 //Functions
-import { shorten } from '../helper/functions';
+import { shorten } from '../../helper/functions';
 
 const Product = ({productData}) => {
     return (
