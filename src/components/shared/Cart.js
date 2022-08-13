@@ -1,5 +1,8 @@
 import React, { useContext } from 'react';
 
+//styles
+import styles from "./Cart.module.css";
+
 //Contexts
 import { CartContext } from '../../contexts/CartContextProvider';
 
@@ -16,16 +19,16 @@ const Cart = ({data}) => {
     const { image, title, price, quantity } = data;
  
     return (
-        <div>
-            <img src={image} alt="product" />
-            <div>
+        <div className={styles.container}>
+            <img className={styles.productImage} src={image} alt="product" />
+            <div className={styles.data}>
                 <h3>{shorten(title)}</h3>
                 <p>{price} $</p>
             </div>
             <div>
-                <span>{quantity}</span>
+                <span className={styles.quantity}>{quantity}</span>
             </div>
-            <div>
+            <div className={styles.buttonContainer}>
                 {
                     quantity > 1 ? 
                     <button onClick={() => dispatch({type: "DECREASE", payload: data})}>-</button> :

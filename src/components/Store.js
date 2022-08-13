@@ -1,5 +1,8 @@
 import React, { useContext } from 'react';
 
+//Styles
+import styles from "./Store.module.css";
+
 //components
 import Product from './shared/Product';
 
@@ -12,7 +15,7 @@ const Store = () => {
 
 
     return (
-        <div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-between"}}>
+        <div className={styles.container}>
             {
                 products.map(product => <Product 
                                             key={product.id}
