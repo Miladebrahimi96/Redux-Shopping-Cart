@@ -1,5 +1,8 @@
 import React, { useContext } from 'react';
 
+//components
+import Product from './shared/Product';
+
 //context
 import { ProductContext } from '../contexts/ProductContextProvider';
 
@@ -10,7 +13,9 @@ const Store = () => {
 
     return (
         <div>
-            
+            {
+                products.map(product => <Product key={product.id} />)
+            }
         </div>
     );
 };
