@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react';
+import React, {useReducer, createContext} from 'react';
 
 const initialState = {
     selectedItems: [],
@@ -57,14 +57,16 @@ const cartReducer = (state, action) => {
     }
 }
 
-const CartContextProvider = () => {
+export const CartContext = createContext();
+
+const CartContextProvider = ({children}) => {
 
     const [state, dispatch] = useReducer(cartReducer, initialState);
 
     return (
-        <div>
-            
-        </div>
+        <CartContext.Provider value={{state, dispatch}}>
+            {children}
+        </CartContext.Provider>
     );
 };
 
