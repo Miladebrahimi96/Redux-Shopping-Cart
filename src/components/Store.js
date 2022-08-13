@@ -12,7 +12,7 @@ const Store = () => {
 
 
     return (
-        <div>
+        <div style={{display: "flex", flexWrap: "wrap", justifyContent: "space-between"}}>
             {
                 products.map(product => <Product 
                                             key={product.id}
