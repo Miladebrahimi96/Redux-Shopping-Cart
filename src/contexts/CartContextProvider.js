@@ -19,13 +19,14 @@ const cartReducer = (state, action) => {
             if(!state.selectedItems.find(item => item.id === action.payload.id)){
                 state.selectedItems.push({
                     ...action.payload,
-                    quantity: 1
+                    quantity: 1,
                 })
             }
             return {
                 ...state,
                 selectedItems: [...state.selectedItems],
-                ...sumItems(state.selectedItems)
+                ...sumItems(state.selectedItems),
+                checkout: false
             }
         case "REMOVE_ITEM":
             const newSelectedItems = state.selectedItems.filter(item => item.id !== action.payload.id);
