@@ -8,6 +8,7 @@ import Product from './shared/Product';
 
 //context
 import { ProductContext } from '../contexts/ProductContextProvider';
+import Loading from './shared/Loading';
 
 const Store = () => {
 
@@ -15,14 +16,21 @@ const Store = () => {
 
 
     return (
-        <div className={styles.container}>
+        <>
             {
-                products.map(product => <Product 
-                                            key={product.id}
-                                            productData={product}
-                                        />)
+                products.length ? 
+                    <div className={styles.container}>
+                        {
+                            products.map(product => <Product 
+                                                        key={product.id}
+                                                        productData={product}
+                                                    />)
+                        }
+                    </div>
+                    :
+                    <Loading />
             }
-        </div>
+        </>
     );
 };
 
