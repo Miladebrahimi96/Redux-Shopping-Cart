@@ -18,23 +18,27 @@ const Store = () => {
     const productsState = useSelector(state=> state.productsState);
 
     useEffect(()=>{
-        dispatch(fetchProducts());
+       if (!productsState.products.length) dispatch(fetchProducts());
     },[])
 
     return (
-        <div className={styles.container}>
+        <>
             {
                 productsState.loading ?
                 <Loading/> :
                 productsState.error ?
                     <h3>Something went wrong</h3> :
-                    productsState.products.map(product => <Product 
-                                                            key={product.id}
-                                                            productData={product} 
-                                                        />)
+                    <div className={styles.container}>
+                        {
+                            productsState.products.map(product => <Product 
+                                                                key={product.id}
+                                                                productData={product} 
+                                                            />)
+                        }
+                    </div>
             }
 
-        </div>
+        </>
     );
 };
 
